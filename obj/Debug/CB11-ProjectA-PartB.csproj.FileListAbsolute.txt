@@ -1,0 +1,12 @@
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\CB11-ProjectA-PartB.exe.config
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\CB11-ProjectA-PartB.exe
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\CB11-ProjectA-PartB.pdb
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\EntityFramework.dll
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\EntityFramework.xml
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.csprojAssemblyReference.cache
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.csproj.CoreCompileInputs.cache
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.csproj.CopyComplete
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.exe
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.pdb
