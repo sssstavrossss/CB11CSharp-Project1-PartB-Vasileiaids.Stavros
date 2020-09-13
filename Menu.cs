@@ -28,11 +28,8 @@ namespace CB11_ProjectA_PartB
                 do
                 {
                     SecondTier(firstTierChoice, out secondTierChoice, out exit);
-                    do
-                    {
-                        ThirdTier(firstTierChoice, secondTierChoice, out back);
-                    } while (back == 0);
-                } while (exit == 2);
+                    ThirdTier(firstTierChoice, secondTierChoice, out back);
+                } while (back == 1);
 
             } while (exit == 2);
 
@@ -66,7 +63,7 @@ namespace CB11_ProjectA_PartB
         private static void SecondTierAction_Add(int secondTierChoice, out int back)
         {
             Manager manager = new Manager(); // to initialize manager class which includes database management
-            back = 0; // default value to make the loop of the tier again, true for all the choises except the last one
+            back = 1; // default value to make the loop of the tier again, true for all the choises except the last one
             if (secondTierChoice == 1) // Add Course
             {
                 Courses cr = new Courses(); // to initialize and create an entity, then pass it to manager to insert it to db
@@ -92,7 +89,7 @@ namespace CB11_ProjectA_PartB
                 manager.AddAssignment(ag);
             }
             else
-                back = 1;
+                back = 0;
         }
 
         private static void SecondTierAction_Show(int secondTierChoice, out int back)
