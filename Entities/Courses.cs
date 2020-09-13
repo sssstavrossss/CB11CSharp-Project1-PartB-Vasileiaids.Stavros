@@ -42,5 +42,30 @@ namespace CB11_ProjectA_PartB.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainers> Trainers { get; set; }
+
+        public void getTitle()
+        {
+            title = Helper.GetString("Course title:");
+        }
+
+        public void getType()
+        {
+            type = Helper.GetString("Course type:");
+        }
+
+        public void getStream()
+        {
+            stream = Helper.GetString("Course strem:");
+        }
+
+        public void getStartDate()
+        {
+            startDate = Helper.GetDate("Course start date: ");
+        }
+
+        public void getEndDate()
+        {
+            endDate = Helper.GetDate("Course end date: ");
+        }
     }
 }

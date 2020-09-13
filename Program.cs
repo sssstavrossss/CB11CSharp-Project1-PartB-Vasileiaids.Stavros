@@ -16,7 +16,6 @@ namespace CB11_ProjectA_PartB
 
             Console.WriteLine("CB11 | Project 1 | Part B | Vasileiadis Stavros");
             Console.WriteLine();
-
             Menu.Init();
 
             //Database db = new Database();

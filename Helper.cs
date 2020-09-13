@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CB11_ProjectA_PartB
 {
-    static class Helper
+    class Helper
     {
         public static void Intro()
         {
@@ -28,7 +28,6 @@ namespace CB11_ProjectA_PartB
 
         public static int MainMenuValidate()
         {
-            Console.WriteLine();
             int x;
             string rd;
             do
@@ -36,21 +35,35 @@ namespace CB11_ProjectA_PartB
                 Console.WriteLine("Type your number of choice.");
                 rd = Console.ReadLine();
             } while (!int.TryParse(rd, out x) && x != 1 && x != 2 && x != 3 && x != 4);
+            Console.WriteLine();
             return x;
         }
 
-        public static void AddMenu()
+        public static int AddMenu()
         {
             Console.WriteLine("Actions:");
             Console.WriteLine("1. Add Course");
             Console.WriteLine("2. Add Student");
             Console.WriteLine("3. Add Trainer");
             Console.WriteLine("4. Add Assignment");
-            Console.WriteLine("Type your number of choice.");
-            Console.WriteLine();
+            Console.WriteLine("5. Back to Main Menu");
+            return Add_Assign_MenuValidate();
         }
 
-        public static void ShowMenu()
+        public static int Add_Assign_MenuValidate()
+        {
+            int x;
+            string rd;
+            do
+            {
+                Console.WriteLine("Type your number of choice.");
+                rd = Console.ReadLine();
+            } while (!int.TryParse(rd, out x) && x < 1 && x > 5);
+            Console.WriteLine();
+            return x;
+        }
+
+        public static int ShowMenu()
         {
             Console.WriteLine("Actions:");
             Console.WriteLine("1. Show Courses");
@@ -64,28 +77,79 @@ namespace CB11_ProjectA_PartB
             Console.WriteLine("9. Show Assignments per Student");
             Console.WriteLine("10. Show Assignments per Course per Student");
             Console.WriteLine("11. Show Student that need to submit an Assignment according to the input date");
-            Console.WriteLine("Type your number of choice.");
-            Console.WriteLine();
+            Console.WriteLine("12. Back to Main Menu");
+            return ShowMenuValidate();
         }
 
-        public static void AssignMenu()
+        public static int ShowMenuValidate()
+        {
+            int x;
+            string rd;
+            do
+            {
+                Console.WriteLine("Type your number of choice.");
+                rd = Console.ReadLine();
+            } while (!int.TryParse(rd, out x) && x < 1 && x > 12);
+            Console.WriteLine();
+            return x;
+        }
+
+        public static int AssignMenu()
         {
             Console.WriteLine("Actions:");
             Console.WriteLine("1. Assign Student to Course");
             Console.WriteLine("2. Assign Trainer to Course");
             Console.WriteLine("3. Assign Assignment to Course");
             Console.WriteLine("4. Assign Assignment to Student");
-            Console.WriteLine("Type your number of choice.");
-            Console.WriteLine();
+            Console.WriteLine("5. Back to Main Menu");
+            return Add_Assign_MenuValidate();
         }
 
-        public static void VerifyExit()
+        public static int VerifyExit()
         {
             Console.WriteLine("Are you sure you want to exit the app?");
             Console.WriteLine("1. Yes");
             Console.WriteLine("2. No");
-            Console.WriteLine("Type your number of choice.");
+            return VerifyExitValidate();
+        }
+
+        public static int VerifyExitValidate()
+        {
+            int x;
+            string rd;
+            do
+            {
+                Console.WriteLine("Type your number of choice.");
+                rd = Console.ReadLine();
+            } while (!int.TryParse(rd, out x) && x != 1 && x != 2);
             Console.WriteLine();
+            return x;
+        }
+
+        public static string GetString(string message)
+        {
+            string str;
+            bool flag;
+            do
+            {
+                Console.WriteLine($"Please type: {message}");
+                str = Console.ReadLine().Trim();
+                flag = (str != "" || str != " " || str.Count() > 50);
+            } while (!flag);
+            return str;
+        }
+
+        public static DateTime GetDate(string message)
+        {
+            string str;
+            DateTime date;
+            do
+            {
+                Console.WriteLine($"please type {message}");
+                str = Console.ReadLine();
+            } while (!DateTime.TryParse(str, out date));
+            return date;
+
         }
 
     }
