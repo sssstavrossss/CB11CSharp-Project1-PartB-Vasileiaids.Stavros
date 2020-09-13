@@ -28,5 +28,25 @@ namespace CB11_ProjectA_PartB.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Courses> Courses { get; set; }
+
+        public void GetFirstName()
+        {
+            firstName = Helper.GetStringBig("Trainer first name:");
+        }
+
+        public void GetLastName()
+        {
+            lastName = Helper.GetString("Trainer last name:");
+        }
+        public void GetSubject()
+        {
+            lastName = Helper.GetString("Trainer subject:");
+        }
+        public void CreateTrainer()
+        {
+            GetFirstName();
+            GetLastName();
+            GetSubject();
+        }
     }
 }

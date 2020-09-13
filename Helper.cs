@@ -139,6 +139,19 @@ namespace CB11_ProjectA_PartB
             return str;
         }
 
+        public static string GetStringBig(string message)
+        {
+            string str;
+            bool flag;
+            do
+            {
+                Console.WriteLine($"Please type: {message}");
+                str = Console.ReadLine().Trim();
+                flag = (str != "" || str != " " || str.Count() > 500);
+            } while (!flag);
+            return str;
+        }
+
         public static DateTime GetDate(string message)
         {
             string str;
@@ -150,6 +163,22 @@ namespace CB11_ProjectA_PartB
             } while (!DateTime.TryParse(str, out date));
             return date;
 
+        }
+
+        public static int GetNumber(string message)
+        {
+            string str;
+            int number;
+            bool flag;
+
+            do
+            {
+                Console.WriteLine($"Please type {message}");
+                str = Console.ReadLine();
+                flag = (!int.TryParse(str, out number) && number < 0);
+            } while (flag);
+
+            return number;
         }
 
     }

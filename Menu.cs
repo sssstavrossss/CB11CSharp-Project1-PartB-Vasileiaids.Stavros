@@ -15,7 +15,7 @@ namespace CB11_ProjectA_PartB
             
             int firstTierChoice; // first tier menu input choice
             int secondTierChoice; // second tier menu input choice
-            int exit = 2; // variable to determine if user wants to exit
+            int exit; // variable to determine if user wants to exit
             int back = 1; // variable to determine if user wants to move to lower tier menu
 
             Helper.Intro();
@@ -31,10 +31,10 @@ namespace CB11_ProjectA_PartB
                     do
                     {
                         ThirdTier(firstTierChoice, secondTierChoice, out back);
-                    } while (back != 0);
-                } while (exit != 1);
+                    } while (back == 0);
+                } while (exit == 2);
 
-            } while (exit != 1);
+            } while (exit == 2);
 
         }
 
@@ -67,19 +67,29 @@ namespace CB11_ProjectA_PartB
         {
             Manager manager = new Manager(); // to initialize manager class which includes database management
             back = 0; // default value to make the loop of the tier again, true for all the choises except the last one
-            if (secondTierChoice == 1)
+            if (secondTierChoice == 1) // Add Course
             {
-                Courses cr = new Courses(); // to initialize and create a course, then pass it to manager to insert it to db
+                Courses cr = new Courses(); // to initialize and create an entity, then pass it to manager to insert it to db
+                cr.CreateCourse();
                 manager.AddCourse(cr);
             }
-            else if (secondTierChoice == 2)
+            else if (secondTierChoice == 2) // Add Student
             {
+                Students st = new Students();
+                st.CreateStudent();
+                manager.AddStudent(st);
             }
-            else if (secondTierChoice == 3)
+            else if (secondTierChoice == 3) // Add Trainer
             {
+                Trainers tr = new Trainers();
+                tr.CreateTrainer();
+                manager.AddTrainer(tr);
             }
-            else if (secondTierChoice == 4)
+            else if (secondTierChoice == 4) // Add Assignment
             {
+                Assignments ag = new Assignments();
+                ag.CreateAssignment();
+                manager.AddAssignment(ag);
             }
             else
                 back = 1;

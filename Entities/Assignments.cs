@@ -36,5 +36,39 @@ namespace CB11_ProjectA_PartB.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students> Students { get; set; }
+
+        public void GetTitle()
+        {
+            title = Helper.GetStringBig("Assignment title:");
+        }
+
+        public void GetDescription()
+        {
+            description = Helper.GetString("Assignment description:");
+        }
+
+        private void GetOralMark()
+        {
+            oralMark = Helper.GetNumber("Assignment oral mark:");
+        }
+
+        private void GetTotalMark()
+        {
+            totalMark = Helper.GetNumber("Assignment total mark:");
+        }
+
+        private void GetSubDateTime()
+        {
+            subDateTime = Helper.GetDate("Assignment submission date: ");
+        }
+
+        public void CreateAssignment()
+        {
+            GetTitle();
+            GetDescription();
+            GetSubDateTime();
+            GetOralMark();
+            GetTotalMark();
+        }
     }
 }
