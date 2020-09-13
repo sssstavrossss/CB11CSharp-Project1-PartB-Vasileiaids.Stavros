@@ -58,6 +58,8 @@
     <Compile Include="Entities\Database.cs" />
     <Compile Include="Entities\Students.cs" />
     <Compile Include="Entities\Trainers.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
