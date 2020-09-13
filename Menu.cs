@@ -95,7 +95,7 @@ namespace CB11_ProjectA_PartB
         private static void SecondTierAction_Show(int secondTierChoice, out int back)
         {
             Manager manager = new Manager(); // to initialize manager class which includes database management
-            back = 0;
+            back = 1;
             if (secondTierChoice == 1)
             {
 
@@ -141,7 +141,7 @@ namespace CB11_ProjectA_PartB
 
             }
             else
-                back = 1;
+                back = 0;
         }
 
         private static void SecondTierAction_Assign(int secondTierChoice, out int back)
