@@ -75,6 +75,7 @@ namespace CB11_ProjectA_PartB.Entities
             GetStream();
             GetStartDate();
             GetEndDate();
+            Console.WriteLine();
         }
     }
 }

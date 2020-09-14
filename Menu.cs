@@ -96,50 +96,28 @@ namespace CB11_ProjectA_PartB
         {
             Manager manager = new Manager(); // to initialize manager class which includes database management
             back = 1;
-            if (secondTierChoice == 1)
-            {
-
-            }
-            else if (secondTierChoice == 2)
-            {
-
-            }
-            else if (secondTierChoice == 3)
-            {
-
-            }
-            else if (secondTierChoice == 4)
-            {
-
-            }
-            else if (secondTierChoice == 5)
-            {
-
-            }
-            else if (secondTierChoice == 6)
-            {
-
-            }
-            else if (secondTierChoice == 7)
-            {
-
-            }
-            else if (secondTierChoice == 8)
-            {
-
-            }
-            else if (secondTierChoice == 9)
-            {
-
-            }
-            else if (secondTierChoice == 10)
-            {
-
-            }
-            else if (secondTierChoice == 11)
-            {
-
-            }
+            if (secondTierChoice == 1) // Show Courses
+                manager.ShowCourses();
+            //else if (secondTierChoice == 2) // Show Students
+            //    manager.ShowStudents();
+            //else if (secondTierChoice == 3) // Show Trainers
+            //    manager.ShowTrainers();
+            //else if (secondTierChoice == 4) // Show Assignments
+            //    manager.ShowAssignments();
+            //else if (secondTierChoice == 5) // Show Students Per Course
+            //    manager.ShowStudentsPerCourse();
+            //else if (secondTierChoice == 6) // Show Trainers per Course
+            //    manager.TrainersPerCourse();
+            //else if (secondTierChoice == 7) // Show Students > 1 Courses
+            //    manager.ShowStudentPerManyCourses();
+            //else if (secondTierChoice == 8) // Show Assignments per Course
+            //    manager.ShowAssignmentsPerCourse();
+            //else if (secondTierChoice == 9) // Show Assignments per Student
+            //    manager.ShowAssignmentsPerStudent();
+            //else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
+            //    manager.ShowAssignmentsPerCoursePerStudent();
+            //else if (secondTierChoice == 11) // Show Student Submit
+            //    manager.ShowStudentSubmit();
             else
                 back = 0;
         }

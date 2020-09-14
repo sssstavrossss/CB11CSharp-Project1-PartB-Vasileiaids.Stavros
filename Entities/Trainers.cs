@@ -47,6 +47,7 @@ namespace CB11_ProjectA_PartB.Entities
             GetFirstName();
             GetLastName();
             GetSubject();
+            Console.WriteLine();
         }
     }
 }

@@ -69,6 +69,7 @@ namespace CB11_ProjectA_PartB.Entities
             GetSubDateTime();
             GetOralMark();
             GetTotalMark();
+            Console.WriteLine();
         }
     }
 }

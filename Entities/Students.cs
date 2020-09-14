@@ -60,6 +60,7 @@ namespace CB11_ProjectA_PartB.Entities
             GetLastName();
             GetTuitionFees();
             GetDateOfBirth();
+            Console.WriteLine();
         }
     }
 }

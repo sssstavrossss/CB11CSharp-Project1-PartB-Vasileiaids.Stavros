@@ -41,6 +41,7 @@ namespace CB11_ProjectA_PartB
                     adapter.InsertCommand.ExecuteNonQuery();
                     adapter.Dispose();
                     dtset.Dispose();
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -72,6 +73,7 @@ namespace CB11_ProjectA_PartB
                     adapter.InsertCommand.ExecuteNonQuery();
                     adapter.Dispose();
                     dtset.Dispose();
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -104,6 +106,7 @@ namespace CB11_ProjectA_PartB
                     adapter.InsertCommand.ExecuteNonQuery();
                     adapter.Dispose();
                     dtset.Dispose();
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -134,6 +137,7 @@ namespace CB11_ProjectA_PartB
                     adapter.InsertCommand.ExecuteNonQuery();
                     adapter.Dispose();
                     dtset.Dispose();
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -142,7 +146,43 @@ namespace CB11_ProjectA_PartB
             }
 
         }
+        public void ShowCourses()
+        {
 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(queryCourses, conn);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    if (rdr.HasRows)
+                        Console.WriteLine("HU");
+                    else
+                        Console.WriteLine("HI");
+
+                    //show course from database
+                    while (rdr.Read())
+                    {
+                        int CID = Convert.ToInt32(rdr["CID"]);
+                        string title = Convert.ToString(rdr["title"]);
+                        string type = Convert.ToString(rdr["type"]);
+                        string stream = Convert.ToString(rdr["stream"]);
+                        DateTime startDate = Convert.ToDateTime(rdr["startDate"]);
+                        DateTime endDate = Convert.ToDateTime(rdr["endDate"]);
+                        Console.WriteLine($"{CID}, Title: {title}, Type: {type}, Stream: {stream}, Start Date: {startDate}, End Date: {endDate}");
+                    }
+                    conn.Close();
+                    Console.WriteLine();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+        }
 
     }
 }
