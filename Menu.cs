@@ -104,8 +104,8 @@ namespace CB11_ProjectA_PartB
                 manager.ShowTrainers();
             else if (secondTierChoice == 4) // Show Assignments
                 manager.ShowAssignments();
-            //else if (secondTierChoice == 5) // Show Students Per Course
-            //    manager.ShowStudentsPerCourse();
+            else if (secondTierChoice == 5) // Show Students Per Course
+                manager.ShowStudentsPerCourse();
             //else if (secondTierChoice == 6) // Show Trainers per Course
             //    manager.TrainersPerCourse();
             //else if (secondTierChoice == 7) // Show Students > 1 Courses
