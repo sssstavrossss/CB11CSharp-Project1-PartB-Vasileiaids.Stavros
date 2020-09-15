@@ -47,7 +47,7 @@ namespace CB11_ProjectA_PartB
             else if (firstTierChoice == 3) // 3 = Assign Data
                 secondTierChoice = Helper.AssignMenu();
             else if (firstTierChoice == 4) // 4 = Exit
-                exit = Helper.VerifyExitValidate();
+                exit = Helper.VerifyExit();
         }
 
         private static void ThirdTier(int firstTierChoice, int secondTierChoice, out int back)
@@ -98,26 +98,26 @@ namespace CB11_ProjectA_PartB
             back = 1;
             if (secondTierChoice == 1) // Show Courses
                 manager.ShowCourses();
-            //else if (secondTierChoice == 2) // Show Students
-            //    manager.ShowStudents();
-            //else if (secondTierChoice == 3) // Show Trainers
-            //    manager.ShowTrainers();
-            //else if (secondTierChoice == 4) // Show Assignments
-            //    manager.ShowAssignments();
-            //else if (secondTierChoice == 5) // Show Students Per Course
-            //    manager.ShowStudentsPerCourse();
-            //else if (secondTierChoice == 6) // Show Trainers per Course
-            //    manager.TrainersPerCourse();
-            //else if (secondTierChoice == 7) // Show Students > 1 Courses
-            //    manager.ShowStudentPerManyCourses();
-            //else if (secondTierChoice == 8) // Show Assignments per Course
-            //    manager.ShowAssignmentsPerCourse();
-            //else if (secondTierChoice == 9) // Show Assignments per Student
-            //    manager.ShowAssignmentsPerStudent();
-            //else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
-            //    manager.ShowAssignmentsPerCoursePerStudent();
-            //else if (secondTierChoice == 11) // Show Student Submit
-            //    manager.ShowStudentSubmit();
+            else if (secondTierChoice == 2) // Show Students
+                manager.ShowStudents();
+            else if (secondTierChoice == 3) // Show Trainers
+                manager.ShowTrainers();
+            else if (secondTierChoice == 4) // Show Assignments
+                manager.ShowAssignments();
+            else if (secondTierChoice == 5) // Show Students Per Course
+                manager.ShowStudentsPerCourse();
+            else if (secondTierChoice == 6) // Show Trainers per Course
+                manager.TrainersPerCourse();
+            else if (secondTierChoice == 7) // Show Students > 1 Courses
+                manager.ShowStudentPerManyCourses();
+            else if (secondTierChoice == 8) // Show Assignments per Course
+                manager.ShowAssignmentsPerCourse();
+            else if (secondTierChoice == 9) // Show Assignments per Student
+                manager.ShowAssignmentsPerStudent();
+            else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
+                manager.ShowAssignmentsPerCoursePerStudent();
+            else if (secondTierChoice == 11) // Show Student Submit
+                manager.ShowStudentSubmit();
             else
                 back = 0;
         }
