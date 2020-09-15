@@ -104,22 +104,22 @@ namespace CB11_ProjectA_PartB
                 manager.ShowTrainers();
             else if (secondTierChoice == 4) // Show Assignments
                 manager.ShowAssignments();
-            else if (secondTierChoice == 5) // Show Students Per Course
-                manager.ShowStudentsPerCourse();
-            else if (secondTierChoice == 6) // Show Trainers per Course
-                manager.TrainersPerCourse();
-            else if (secondTierChoice == 7) // Show Students > 1 Courses
-                manager.ShowStudentPerManyCourses();
-            else if (secondTierChoice == 8) // Show Assignments per Course
-                manager.ShowAssignmentsPerCourse();
-            else if (secondTierChoice == 9) // Show Assignments per Student
-                manager.ShowAssignmentsPerStudent();
-            else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
-                manager.ShowAssignmentsPerCoursePerStudent();
-            else if (secondTierChoice == 11) // Show Student Submit
-                manager.ShowStudentSubmit();
-            else
-                back = 0;
+            //else if (secondTierChoice == 5) // Show Students Per Course
+            //    manager.ShowStudentsPerCourse();
+            //else if (secondTierChoice == 6) // Show Trainers per Course
+            //    manager.TrainersPerCourse();
+            //else if (secondTierChoice == 7) // Show Students > 1 Courses
+            //    manager.ShowStudentPerManyCourses();
+            //else if (secondTierChoice == 8) // Show Assignments per Course
+            //    manager.ShowAssignmentsPerCourse();
+            //else if (secondTierChoice == 9) // Show Assignments per Student
+            //    manager.ShowAssignmentsPerStudent();
+            //else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
+            //    manager.ShowAssignmentsPerCoursePerStudent();
+            //else if (secondTierChoice == 11) // Show Student Submit
+            //    manager.ShowStudentSubmit();
+            //else
+            //    back = 0;
         }
 
         private static void SecondTierAction_Assign(int secondTierChoice, out int back)

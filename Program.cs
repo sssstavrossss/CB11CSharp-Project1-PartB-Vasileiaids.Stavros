@@ -14,20 +14,19 @@ namespace CB11_ProjectA_PartB
     {
         static void Main(string[] args)
         {
-
-
+            List<Type> type = new List<Type> { typeof(Int32), typeof(Int32?), typeof(String), typeof(DateTime), typeof(DateTime?), };
             Courses cr = new Courses();
             Type mytype = cr.GetType();
+            PropertyInfo[] pr = cr.GetType().GetProperties();
             FieldInfo[] field = mytype.GetFields();
-            for (int i = 0; i < field.Length; i++)
+            for (int i = 0; i < pr.Length; i++)
             {
-                // Determine whether or not each field is a special name.
-                if (field[i].IsSpecialName)
-                {
-                    Console.WriteLine("The field {0} has a SpecialName attribute.",
-                        field[i].Name);
-                }
+                if (type.Contains(pr[i].PropertyType))
+                Console.WriteLine(pr[i].Name + " " + pr[i].PropertyType.Name);
             }
+            //Console.WriteLine("CB11 | Project 1 | Part B | Vasileiadis Stavros");
+            //Console.WriteLine();
+            //Menu.Init();
 
         }
     }

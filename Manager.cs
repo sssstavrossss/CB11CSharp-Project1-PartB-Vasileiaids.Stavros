@@ -17,48 +17,48 @@ namespace CB11_ProjectA_PartB
         private static string queryStudents = "Select * from Students";
         private static string queryAssignments = "Select * from Assignments";
         private static string queryTrainers = "Select * from Trainers";
-        private static string query = "Select * from";
-        private static string quety2 = $@"insert into {1}(title, stream, type, startDate, endDate)
-                    values (@title, @stream, @type, @startDate, @endDate)";
+        //private static string query = "Select * from";
+        //private static string quety2 = $@"insert into {1}(title, stream, type, startDate, endDate)
+        //            values (@title, @stream, @type, @startDate, @endDate)";
 
-        public void Add<T>(T obj)
-        {
+        //public void Add<T>(T obj)
+        //{
 
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connstring))
-                {
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connstring))
+        //        {
                     
 
-                    //insert course to database
-                    method1(conn, (Courses)(object)obj);
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex);
-            }
+        //            //insert course to database
+        //            method1(conn, (Courses)(object)obj);
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        Console.WriteLine(ex);
+        //    }
 
-        }
-        private void method1(SqlConnection conn, Courses cr)
-        {
-            conn.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter(queryCourses, connstring);
-            DataSet dtset = new DataSet();
-            adapter.Fill(dtset, "Courses");
-            SqlCommand cmd = new SqlCommand(@"insert into Courses(title, stream, type, startDate, endDate)
-                    values (@title, @stream, @type, @startDate, @endDate)", conn);
-            cmd.Parameters.AddWithValue("@title", cr.title);
-            cmd.Parameters.AddWithValue("@type", cr.type);
-            cmd.Parameters.AddWithValue("@stream", cr.stream);
-            cmd.Parameters.AddWithValue("@startDate", cr.startDate);
-            cmd.Parameters.AddWithValue("@endDate", cr.endDate);
-            adapter.InsertCommand = cmd;
-            adapter.InsertCommand.ExecuteNonQuery();
-            adapter.Dispose();
-            dtset.Dispose();
-            conn.Close();
-        }
+        //}
+        //private void method1(SqlConnection conn, Courses cr)
+        //{
+        //    conn.Open();
+        //    SqlDataAdapter adapter = new SqlDataAdapter(queryCourses, connstring);
+        //    DataSet dtset = new DataSet();
+        //    adapter.Fill(dtset, "Courses");
+        //    SqlCommand cmd = new SqlCommand(@"insert into Courses(title, stream, type, startDate, endDate)
+        //            values (@title, @stream, @type, @startDate, @endDate)", conn);
+        //    cmd.Parameters.AddWithValue("@title", cr.title);
+        //    cmd.Parameters.AddWithValue("@type", cr.type);
+        //    cmd.Parameters.AddWithValue("@stream", cr.stream);
+        //    cmd.Parameters.AddWithValue("@startDate", cr.startDate);
+        //    cmd.Parameters.AddWithValue("@endDate", cr.endDate);
+        //    adapter.InsertCommand = cmd;
+        //    adapter.InsertCommand.ExecuteNonQuery();
+        //    adapter.Dispose();
+        //    dtset.Dispose();
+        //    conn.Close();
+        //}
 
 
         public void AddCourse(Courses cr)
