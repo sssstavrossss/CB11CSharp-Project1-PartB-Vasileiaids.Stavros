@@ -19,11 +19,14 @@ namespace CB11_ProjectA_PartB
             Type mytype = cr.GetType();
             PropertyInfo[] pr = cr.GetType().GetProperties();
             FieldInfo[] field = mytype.GetFields();
+            string msg = "";
             for (int i = 0; i < pr.Length; i++)
             {
                 if (type.Contains(pr[i].PropertyType))
-                Console.WriteLine(pr[i].Name + " " + pr[i].PropertyType.Name);
+                    msg += "@" + pr[i].Name + " ";
+                //Console.WriteLine(pr[i].Name + " " + pr[i].PropertyType.Name);
             }
+            Console.WriteLine(msg);
             //Console.WriteLine("CB11 | Project 1 | Part B | Vasileiadis Stavros");
             //Console.WriteLine();
             //Menu.Init();

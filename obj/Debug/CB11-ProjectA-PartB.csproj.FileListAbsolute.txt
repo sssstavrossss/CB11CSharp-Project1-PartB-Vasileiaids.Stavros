@@ -9,3 +9,4 @@ C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileia
 C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.csproj.CopyComplete
 C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.exe
 C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.pdb
+C:\Users\vasil\Documents\Diary\CodingBootcamp\CB11CSharp-Project1-PartB-Vasileiaids.Stavros\obj\Debug\CB11-ProjectA-PartB.csprojAssemblyReference.cache
