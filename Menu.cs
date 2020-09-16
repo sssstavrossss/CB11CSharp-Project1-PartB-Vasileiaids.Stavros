@@ -20,7 +20,7 @@ namespace CB11_ProjectA_PartB
             int back = 1; // variable to determine if user wants to move to lower tier menu
 
             Helper.Intro();
-
+            Database db = new Database();
             do
             {
 
@@ -29,7 +29,7 @@ namespace CB11_ProjectA_PartB
                 do
                 {
                     SecondTier(firstTierChoice, out secondTierChoice, out exit);
-                    ThirdTier(firstTierChoice, secondTierChoice, out back);
+                    ThirdTier(firstTierChoice, secondTierChoice, out back, db);
                 } while (back == 1);
 
             } while (exit == 2);
@@ -51,12 +51,12 @@ namespace CB11_ProjectA_PartB
                 exit = Helper.VerifyExit();
         }
 
-        private static void ThirdTier(int firstTierChoice, int secondTierChoice, out int back)
+        private static void ThirdTier(int firstTierChoice, int secondTierChoice, out int back, Database db)
         {
             if (firstTierChoice == 1) // 1 = Add Data
                 SecondTierAction_Add(secondTierChoice, out back);
             else if (firstTierChoice == 2) // 2 = Show Data
-                SecondTierAction_Show(secondTierChoice, out back);
+                SecondTierAction_Show(secondTierChoice, out back, db);
             else  // 3 = Assign Data
                 SecondTierAction_Assign(secondTierChoice, out back);
         }
@@ -93,21 +93,19 @@ namespace CB11_ProjectA_PartB
                 back = 0;
         }
 
-        private static void SecondTierAction_Show(int secondTierChoice, out int back)
+        private static void SecondTierAction_Show(int secondTierChoice, out int back, Database db)
         {
-            Manager manager = new Manager(); // to initialize manager class which includes database management
-            Database db = new Database();
             back = 1;
             if (secondTierChoice == 1) // Show Courses
                 db.ShowCourses();
             else if (secondTierChoice == 2) // Show Students
-                manager.ShowStudents();
+               db.ShowStudents();
             else if (secondTierChoice == 3) // Show Trainers
-                manager.ShowTrainers();
+                db.ShowTrainers();
             else if (secondTierChoice == 4) // Show Assignments
-                manager.ShowAssignments();
-            else if (secondTierChoice == 5) // Show Students Per Course
-                manager.ShowStudentsPerCourse();
+                db.ShowAssignments();
+            //else if (secondTierChoice == 5) // Show Students Per Course
+            //    db.ShowStudentsPerCourse();
             //else if (secondTierChoice == 6) // Show Trainers per Course
             //    manager.TrainersPerCourse();
             //else if (secondTierChoice == 7) // Show Students > 1 Courses

@@ -5,6 +5,8 @@ namespace CB11_ProjectA_PartB.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Collections.Generic;
+    using System.Data.Entity.Core.Metadata.Edm;
+    using System.Reflection;
 
     public partial class Database : DbContext
     {
@@ -87,13 +89,57 @@ namespace CB11_ProjectA_PartB.Entities
             coursesList = Courses.ToList();
             if (coursesList != null)
                 if (coursesList.Count > 0)
-                    foreach (var item in coursesList)
-                        Console.WriteLine($"{item.CID}, Title: {item.title}, Type: {item.type}, Stream: {item.stream}, " +
-                            $"Start Date: {item.startDate}, End Date: {item.endDate}");
+                    coursesList.ForEach(x => Console.WriteLine($"{x.CID}, Title: {x.title}, Type: {x.type}, Stream: {x.stream}, " +
+                           $"Start Date: {x.startDate}, End Date: {x.endDate}"));
                 else
                     Console.WriteLine("There are no courses yet!");
             else
                 Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowStudents()
+        {
+            List<Students> studentsList;
+            studentsList = Students.ToList();
+            if (studentsList != null)
+                if (studentsList.Count > 0)
+                    studentsList.ForEach(x => Console.WriteLine($"{x.SID}, First Name: {x.firstName}, Last Name: {x.lastName}, Birth Date: " +
+                           $"{x.dateOfBirth}, Tuition Fees: {x.tuitionFees}"));
+                else
+                    Console.WriteLine("There are no students yet!");
+            else
+                Console.WriteLine("There are no students yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowTrainers()
+        {
+            List<Trainers> trainersList;
+            trainersList = Trainers.ToList();
+            if (trainersList != null)
+                if (trainersList.Count > 0)
+                    trainersList.ForEach(x => Console.WriteLine($"{x.TID}, First Name: {x.firstName}, " +
+                        $"Last Name: {x.lastName}, Subject: {x.subject}"));
+                else
+                    Console.WriteLine("There are no trainers yet!");
+            else
+                Console.WriteLine("There are no trainers yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowAssignments()
+        {
+            List<Assignments> assignmentsList;
+            assignmentsList = Assignments.ToList();
+            if (assignmentsList != null)
+                if (assignmentsList.Count > 0)
+                    assignmentsList.ForEach(x => Console.WriteLine($"{x.TID}, First Name: {x.firstName}, " +
+                        $"Last Name: {x.lastName}, Subject: {x.subject}"));
+                else
+                    Console.WriteLine("There are no assignments yet!");
+            else
+                Console.WriteLine("There are no assignments yet!");
             Console.WriteLine();
         }
     }
