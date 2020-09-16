@@ -4,6 +4,7 @@ namespace CB11_ProjectA_PartB.Entities
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Collections.Generic;
 
     public partial class Database : DbContext
     {
@@ -78,6 +79,22 @@ namespace CB11_ProjectA_PartB.Entities
             modelBuilder.Entity<Trainers>()
                 .Property(e => e.subject)
                 .IsUnicode(false);
+        }
+
+        public void ShowCourses()
+        {
+            List<Courses> coursesList;
+            coursesList = Courses.ToList();
+            if (coursesList != null)
+                if (coursesList.Count > 0)
+                    foreach (var item in coursesList)
+                        Console.WriteLine($"{item.CID}, Title: {item.title}, Type: {item.type}, Stream: {item.stream}, " +
+                            $"Start Date: {item.startDate}, End Date: {item.endDate}");
+                else
+                    Console.WriteLine("There are no courses yet!");
+            else
+                Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
         }
     }
 }

@@ -148,56 +148,22 @@ namespace CB11_ProjectA_PartB
             }
 
         }
-        public void ShowCourses()
+        public List<Courses> GetCourses()
         {
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connstring))
                 {
-                    //conn.Open();
-                    //SqlCommand cmd = new SqlCommand(queryCourses, conn);
-                    //SqlDataReader rdr = cmd.ExecuteReader();
-
                     Database db = new Database();
                     List<Courses> coursesList = db.Courses.ToList();
-                    foreach (Courses st in coursesList)
-                    {
-                        Console.WriteLine(st.title);
-                        //foreach (Students crs in st.Students)
-                        //{
-                        //    Console.WriteLine(crs.firstName);
-                        //}
-                    }
-
-
-
-                    //show course from database
-                    //if (rdr.HasRows)
-                    //{
-                    //    while (rdr.Read())
-                    //    {
-                    //        int CID = Convert.ToInt32(rdr["CID"]);
-                    //        string title = Convert.ToString(rdr["title"]);
-                    //        string type = Convert.ToString(rdr["type"]);
-                    //        string stream = Convert.ToString(rdr["stream"]);
-                    //        DateTime startDate = Convert.ToDateTime(rdr["startDate"]);
-                    //        DateTime endDate = Convert.ToDateTime(rdr["endDate"]);
-                    //        Console.WriteLine($"{CID}, Title: {title}, Type: {type}, Stream: {stream}, Start Date: {startDate}, End Date: {endDate}");
-                    //    }
-                    //}
-                    //else
-                    //    Console.WriteLine("No Courses in the Database yet!!");
-                    
-                    //conn.Close();
-                    Console.WriteLine();
+                    return coursesList;
                 }
             }
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }
-
+            return null;
         }
         public void ShowStudents()
         {

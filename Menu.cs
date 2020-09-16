@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,9 +96,10 @@ namespace CB11_ProjectA_PartB
         private static void SecondTierAction_Show(int secondTierChoice, out int back)
         {
             Manager manager = new Manager(); // to initialize manager class which includes database management
+            Database db = new Database();
             back = 1;
             if (secondTierChoice == 1) // Show Courses
-                manager.ShowCourses();
+                db.ShowCourses();
             else if (secondTierChoice == 2) // Show Students
                 manager.ShowStudents();
             else if (secondTierChoice == 3) // Show Trainers
