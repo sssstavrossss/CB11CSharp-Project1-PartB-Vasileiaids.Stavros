@@ -116,10 +116,10 @@ namespace CB11_ProjectA_PartB
                 db.ShowAssignmentsPerStudent();
             else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
                 db.ShowAssignmentsPerCoursePerStudent();
-            //else if (secondTierChoice == 11) // Show Student Submit
-            //    manager.ShowStudentSubmit();
-            //else
-            //    back = 0;
+            else if (secondTierChoice == 11) // Show Student Submit
+                manager.ShowStudentSubmit();
+            else
+                back = 0;
         }
 
         private static void SecondTierAction_Assign(int secondTierChoice, out int back)

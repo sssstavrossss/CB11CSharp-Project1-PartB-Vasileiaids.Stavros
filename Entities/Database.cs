@@ -8,6 +8,8 @@ namespace CB11_ProjectA_PartB.Entities
     using System.Data.Entity.Core.Metadata.Edm;
     using System.Reflection;
     using System.Data;
+    using System.Runtime.InteropServices;
+    using System.Security.Cryptography;
 
     public partial class Database : DbContext
     {
@@ -198,14 +200,23 @@ namespace CB11_ProjectA_PartB.Entities
         }
         public void ShowStudentPerManyCourses()
         {
-            if (Courses.Any())
-                Courses.ToList().GroupBy(x => new x.Students { })
-                    .Select(s=> new{
-                        id = XmlReadMode.
-                    });
+            if (Students.Any())
+                if (Courses.Any())
+                    foreach (var item in Students.ToList())
+                    {
+                        int contains = 0;
+                        foreach (var item2 in Courses.ToList())
+                        {
+                            if (item2.CID == item.SID)
+                                contains++;
+                        }
+                        if (contains >= 2)
+                            Console.WriteLine($"{item.SID} Student name: {item.firstName} {item.lastName}, Course: {item.Courses}");
+                    }
+                else
+                    Console.WriteLine("There are no courses yet!");
             else
-                Console.WriteLine("There are no courses yet!");
-            Console.WriteLine();
+               Console.WriteLine("There are no students yet!");
         }
     }
 }

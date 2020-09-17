@@ -148,43 +148,6 @@ namespace CB11_ProjectA_PartB
             }
 
         }
-        
-        public void ShowStudentsPerCourse()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connstring))
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(queryAssignments, conn);
-                    SqlDataReader rdr = cmd.ExecuteReader();
-
-                    //show assignments from database
-                    if (rdr.HasRows)
-                    {
-                        while (rdr.Read())
-                        {
-                            int AID = Convert.ToInt32(rdr["AID"]);
-                            string title = Convert.ToString(rdr["title"]);
-                            string description = Convert.ToString(rdr["description"]);
-                            DateTime subDateTime = Convert.ToDateTime(rdr["subDateTime"]);
-                            int oralMark = Convert.ToInt32(rdr["oralMark"]);
-                            int totalMark = Convert.ToInt32(rdr["totalMark"]);
-                            Console.WriteLine($"{AID}, Title: {title}, Description: {description}, Sub date: {subDateTime}, Oral Mark: {oralMark}, Total Mark {totalMark}");
-                        }
-                    }
-                    else
-                        Console.WriteLine("No Courses in the Database yet!!");
-
-                    conn.Close();
-                    Console.WriteLine();
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine(ex);
-            }
-        }
 
     }
 }
