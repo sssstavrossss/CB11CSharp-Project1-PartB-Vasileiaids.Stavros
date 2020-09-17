@@ -99,7 +99,7 @@ namespace CB11_ProjectA_PartB
             if (secondTierChoice == 1) // Show Courses
                 db.ShowCourses();
             else if (secondTierChoice == 2) // Show Students
-               db.ShowStudents();
+                db.ShowStudents();
             else if (secondTierChoice == 3) // Show Trainers
                 db.ShowTrainers();
             else if (secondTierChoice == 4) // Show Assignments
@@ -116,8 +116,11 @@ namespace CB11_ProjectA_PartB
                 db.ShowAssignmentsPerStudent();
             else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
                 db.ShowAssignmentsPerCoursePerStudent();
-            else if (secondTierChoice == 11) // Show Student Submit
-                manager.ShowStudentSubmit();
+            else if (secondTierChoice == 11)
+            { // Show Student Submit
+                DateTime date = Helper.GetDate("the date you want to check:");
+                db.ShowStudentSubmit(date);
+            }
             else
                 back = 0;
         }

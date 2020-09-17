@@ -201,22 +201,40 @@ namespace CB11_ProjectA_PartB.Entities
         public void ShowStudentPerManyCourses()
         {
             if (Students.Any())
-                if (Courses.Any())
-                    foreach (var item in Students.ToList())
+                foreach (var item in Students.ToList())
+                    if (item.Courses.Any())
                     {
-                        int contains = 0;
-                        foreach (var item2 in Courses.ToList())
-                        {
-                            if (item2.CID == item.SID)
-                                contains++;
-                        }
-                        if (contains >= 2)
-                            Console.WriteLine($"{item.SID} Student name: {item.firstName} {item.lastName}, Course: {item.Courses}");
+                        if (item.Courses.Count() >= 2)
+                            Console.WriteLine($"Student name: {item.firstName} {item.lastName}");
                     }
-                else
-                    Console.WriteLine("There are no courses yet!");
+                    else
+                        Console.WriteLine($"There are no courses for student {item.firstName} {item.lastName} yet!");
             else
-               Console.WriteLine("There are no students yet!");
+                Console.WriteLine("There are no students yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowStudentSubmit(DateTime date)
+        {
+
+            while (!date.DayOfWeek.ToString().Equals("Monday"))
+                date = date.AddDays(-1);
+
+            if (Students.Any())
+            {
+                foreach (var item in Students.ToList())
+                    if (item.Assignments.Any())
+                    {
+                        foreach (var item2 in item.Assignments.ToList())
+                        {
+                            if (item2.subDateTime >= date && item2.subDateTime <= date.AddDays(5))
+                                Console.WriteLine($"Student: {item.firstName} {item.lastName}");
+                        }
+                    }
+            }
+            else
+                Console.WriteLine("Therea re no Students yet!");
+
         }
     }
 }
