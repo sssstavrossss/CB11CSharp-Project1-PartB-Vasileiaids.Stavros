@@ -7,6 +7,7 @@ namespace CB11_ProjectA_PartB.Entities
     using System.Collections.Generic;
     using System.Data.Entity.Core.Metadata.Edm;
     using System.Reflection;
+    using System.Data;
 
     public partial class Database : DbContext
     {
@@ -85,14 +86,9 @@ namespace CB11_ProjectA_PartB.Entities
 
         public void ShowCourses()
         {
-            List<Courses> coursesList;
-            coursesList = Courses.ToList();
-            if (coursesList != null)
-                if (coursesList.Count > 0)
-                    coursesList.ForEach(x => Console.WriteLine($"{x.CID}, Title: {x.title}, Type: {x.type}, Stream: {x.stream}, " +
-                           $"Start Date: {x.startDate}, End Date: {x.endDate}"));
-                else
-                    Console.WriteLine("There are no courses yet!");
+            if (Courses.Any())
+                Courses.ToList().ForEach(x => Console.WriteLine($"{x.CID}, Title: {x.title}, Type: {x.type}, Stream: {x.stream}, " +
+                            $"Start Date: {x.startDate}, End Date: {x.endDate}"));
             else
                 Console.WriteLine("There are no courses yet!");
             Console.WriteLine();
@@ -100,14 +96,10 @@ namespace CB11_ProjectA_PartB.Entities
 
         public void ShowStudents()
         {
-            List<Students> studentsList;
-            studentsList = Students.ToList();
-            if (studentsList != null)
-                if (studentsList.Count > 0)
-                    studentsList.ForEach(x => Console.WriteLine($"{x.SID}, First Name: {x.firstName}, Last Name: {x.lastName}, Birth Date: " +
-                           $"{x.dateOfBirth}, Tuition Fees: {x.tuitionFees}"));
-                else
-                    Console.WriteLine("There are no students yet!");
+            List<Students> studentsList = Students.ToList();
+            if (studentsList.Any())
+                studentsList.ForEach(x => Console.WriteLine($"{x.SID}, First Name: {x.firstName}, Last Name: {x.lastName}, Birth Date: " +
+                        $"{x.dateOfBirth}, Tuition Fees: {x.tuitionFees}"));
             else
                 Console.WriteLine("There are no students yet!");
             Console.WriteLine();
@@ -115,14 +107,10 @@ namespace CB11_ProjectA_PartB.Entities
 
         public void ShowTrainers()
         {
-            List<Trainers> trainersList;
-            trainersList = Trainers.ToList();
-            if (trainersList != null)
-                if (trainersList.Count > 0)
-                    trainersList.ForEach(x => Console.WriteLine($"{x.TID}, First Name: {x.firstName}, " +
-                        $"Last Name: {x.lastName}, Subject: {x.subject}"));
-                else
-                    Console.WriteLine("There are no trainers yet!");
+            List<Trainers> trainersList = Trainers.ToList();
+            if (trainersList.Any())
+                trainersList.ForEach(x => Console.WriteLine($"{x.TID}, First Name: {x.firstName}, " +
+                    $"Last Name: {x.lastName}, Subject: {x.subject}"));
             else
                 Console.WriteLine("There are no trainers yet!");
             Console.WriteLine();
@@ -130,17 +118,110 @@ namespace CB11_ProjectA_PartB.Entities
 
         public void ShowAssignments()
         {
-            List<Assignments> assignmentsList;
-            assignmentsList = Assignments.ToList();
-            if (assignmentsList != null)
-                if (assignmentsList.Count > 0)
-                    assignmentsList.ForEach(x => Console.WriteLine($"{x.TID}, First Name: {x.firstName}, " +
-                        $"Last Name: {x.lastName}, Subject: {x.subject}"));
-                else
-                    Console.WriteLine("There are no assignments yet!");
+            List<Assignments> assignmentsList = Assignments.ToList();
+            if (assignmentsList.Any())
+                assignmentsList.ForEach(x => Console.WriteLine($"{x.AID}, First Name: {x.title}, " +
+                    $"Last Name: {x.description}, Subject: {x.subDateTime}"));
             else
                 Console.WriteLine("There are no assignments yet!");
             Console.WriteLine();
+        }
+
+        public void ShowStudentsPerCourse()
+        {
+            List<Courses> coursesList = Courses.ToList();
+            if (coursesList.Any())
+                foreach (Courses item in coursesList)
+                    if (item.Students.Any())
+                        foreach (Students st in item.Students)
+                            Console.WriteLine($" Course: {item.title}, Student Name: {st.firstName} {st.lastName}");
+                    else
+                        Console.WriteLine($"There are no Students yet in course {item.title}!");
+            else
+                Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowTrainersPerCourse()
+        {
+            List<Courses> coursesList = Courses.ToList();
+            if (coursesList.Any())
+                foreach (Courses item in coursesList)
+                    if (item.Trainers.Any())
+                        foreach (Trainers st in item.Trainers)
+                            Console.WriteLine($" Course: {item.title}, Trainer Name: {st.firstName} {st.lastName}");
+                    else
+                        Console.WriteLine($"There are no Trainers yet in course {item.title}!");
+            else
+                Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowAssignmentsPerCourse()
+        {
+            List<Courses> coursesList = Courses.ToList();
+            if (coursesList.Any())
+                foreach (Courses item in coursesList)
+                    if (item.Assignments.Any())
+                        foreach (Assignments st in item.Assignments)
+                            Console.WriteLine($" Course: {item.title}, Assignment Name: {st.title}");
+                    else
+                        Console.WriteLine($"There are no Assignments yet in course {item.title}!");
+            else
+                Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
+        }
+
+        public void ShowAssignmentsPerStudent()
+        {
+            List<Students> studentsList = Students.ToList();
+            if (studentsList.Any())
+                foreach (Students item in studentsList)
+                    if (item.Assignments.Any())
+                        foreach (Assignments st in item.Assignments)
+                            Console.WriteLine($" Student: {item.firstName} {item.lastName}, Assignment Name: {st.title}");
+                    else
+                        Console.WriteLine($"There are no Assignments yet for student {item.firstName} {item.lastName}!");
+            else
+                Console.WriteLine("There are no students yet!");
+            Console.WriteLine();
+        }
+        public void ShowAssignmentsPerCoursePerStudent()
+        {
+            List<Courses> coursessList = Courses.ToList();
+            if (coursessList.Any())
+                foreach (Courses item in coursessList)
+                    if (item.Students.Any())
+                        foreach (Students st in item.Students)
+                            if (st.Assignments.Any())
+                                foreach (Assignments asn in st.Assignments)
+                                    Console.WriteLine($"Course: {item.title} Student: {st.firstName} {st.lastName}, Assignment Name: {asn.title}");
+                            else
+                                Console.WriteLine($"There are no Assignments yet for the student {st.firstName} {st.lastName}");
+                    else
+                        Console.WriteLine($"There are no Students yet for course {item.title}!");
+            else
+                Console.WriteLine("There are no courses yet!");
+            Console.WriteLine();
+        }
+        public void ShowStudentPerManyCourses()
+        {
+            //foreach (Courses item in Courses)
+            //List<Courses> coursessList = Courses.ToList();
+            //if (coursessList.Any())
+            //    foreach (Courses item in coursessList)
+            //        if (item.Students.Any())
+            //            foreach (Students st in item.Students)
+            //                if (st.Assignments.Any())
+            //                    foreach (Assignments asn in st.Assignments)
+            //                        Console.WriteLine($"Course: {item.title} Student: {st.firstName} {st.lastName}, Assignment Name: {asn.title}");
+            //                else
+            //                    Console.WriteLine($"There are no Assignments yet for the student {st.firstName} {st.lastName}");
+            //        else
+            //            Console.WriteLine($"There are no Students yet for course {item.title}!");
+            //else
+            //    Console.WriteLine("There are no courses yet!");
+            //Console.WriteLine();
         }
     }
 }

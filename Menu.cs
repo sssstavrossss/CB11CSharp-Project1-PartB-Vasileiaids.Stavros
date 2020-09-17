@@ -104,18 +104,18 @@ namespace CB11_ProjectA_PartB
                 db.ShowTrainers();
             else if (secondTierChoice == 4) // Show Assignments
                 db.ShowAssignments();
-            //else if (secondTierChoice == 5) // Show Students Per Course
-            //    db.ShowStudentsPerCourse();
-            //else if (secondTierChoice == 6) // Show Trainers per Course
-            //    manager.TrainersPerCourse();
-            //else if (secondTierChoice == 7) // Show Students > 1 Courses
-            //    manager.ShowStudentPerManyCourses();
-            //else if (secondTierChoice == 8) // Show Assignments per Course
-            //    manager.ShowAssignmentsPerCourse();
-            //else if (secondTierChoice == 9) // Show Assignments per Student
-            //    manager.ShowAssignmentsPerStudent();
-            //else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
-            //    manager.ShowAssignmentsPerCoursePerStudent();
+            else if (secondTierChoice == 5) // Show Students Per Course
+                db.ShowStudentsPerCourse();
+            else if (secondTierChoice == 6) // Show Trainers per Course
+                db.ShowTrainersPerCourse();
+            else if (secondTierChoice == 7) // Show Students > 1 Courses
+                db.ShowStudentPerManyCourses();
+            else if (secondTierChoice == 8) // Show Assignments per Course
+                db.ShowAssignmentsPerCourse();
+            else if (secondTierChoice == 9) // Show Assignments per Student
+                db.ShowAssignmentsPerStudent();
+            else if (secondTierChoice == 10) // Show Assignments Per Course Per Student
+                db.ShowAssignmentsPerCoursePerStudent();
             //else if (secondTierChoice == 11) // Show Student Submit
             //    manager.ShowStudentSubmit();
             //else

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CB11_ProjectA_PartB.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace CB11_ProjectA_PartB
 {
