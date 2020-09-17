@@ -12,18 +12,15 @@ namespace CB11_ProjectA_PartB
     {
 
         public static void Init() {
-
-            
+            Database db = new Database(); // initializing database entity
             int firstTierChoice; // first tier menu input choice
             int secondTierChoice; // second tier menu input choice
             int exit; // variable to determine if user wants to exit
             int back = 1; // variable to determine if user wants to move to lower tier menu
 
             Helper.Intro();
-            Database db = new Database();
             do
             {
-
                 firstTierChoice = Helper.MainMenu();
 
                 do
@@ -31,9 +28,7 @@ namespace CB11_ProjectA_PartB
                     SecondTier(firstTierChoice, out secondTierChoice, out exit);
                     ThirdTier(firstTierChoice, secondTierChoice, out back, db);
                 } while (back == 1);
-
             } while (exit == 2);
-
         }
 
         private static void SecondTier(int firstTierChoice, out int secondTierChoice, out int exit)
@@ -58,12 +53,12 @@ namespace CB11_ProjectA_PartB
             else if (firstTierChoice == 2) // 2 = Show Data
                 SecondTierAction_Show(secondTierChoice, out back, db);
             else  // 3 = Assign Data
-                SecondTierAction_Assign(secondTierChoice, out back);
+                SecondTierAction_Assign(secondTierChoice, out back, db);
         }
 
         private static void SecondTierAction_Add(int secondTierChoice, out int back)
         {
-            Manager manager = new Manager(); // to initialize manager class which includes database management
+            Manager manager = new Manager(); // to initialize manager class which includes database inserts
             back = 1; // default value to make the loop of the tier again, true for all the choises except the last one
             if (secondTierChoice == 1) // Add Course
             {
@@ -125,13 +120,13 @@ namespace CB11_ProjectA_PartB
                 back = 0;
         }
 
-        private static void SecondTierAction_Assign(int secondTierChoice, out int back)
+        private static void SecondTierAction_Assign(int secondTierChoice, out int back, Database db)
         {
-            Manager manager = new Manager(); // to initialize manager class which includes database management
+            Manager manager = new Manager(); // to initialize manager class which includes database inserts
             back = 0;
             if (secondTierChoice == 1)
             {
-
+                manager.AddStudentsToCourses(db);
             }
             else if (secondTierChoice == 2)
             {

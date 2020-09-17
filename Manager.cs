@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace CB11_ProjectA_PartB
         private static string queryStudents = "Select * from Students";
         private static string queryAssignments = "Select * from Assignments";
         private static string queryTrainers = "Select * from Trainers";
+        private static string queryStudentsPerCourse = "Select * from StudentsPerCourse";
 
 
         public void AddCourse(Courses cr)
@@ -50,6 +52,11 @@ namespace CB11_ProjectA_PartB
             {
                 Console.WriteLine(ex);
             }
+            finally
+            {
+                Console.WriteLine("Success!!");
+                Console.WriteLine();
+            }
 
         }
         public void AddStudent(Students st)
@@ -81,6 +88,11 @@ namespace CB11_ProjectA_PartB
             catch (SqlException ex)
             {
                 Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.WriteLine("Success!!");
+                Console.WriteLine();
             }
 
         }
@@ -115,6 +127,11 @@ namespace CB11_ProjectA_PartB
             {
                 Console.WriteLine(ex);
             }
+            finally
+            {
+                Console.WriteLine("Success!!");
+                Console.WriteLine();
+            }
 
         }
         public void AddTrainer(Trainers tr)
@@ -146,8 +163,84 @@ namespace CB11_ProjectA_PartB
             {
                 Console.WriteLine(ex);
             }
+            finally
+            {
+                Console.WriteLine("Success!!");
+                Console.WriteLine();
+            }
 
         }
+
+        public void AddStudentsToCourses(Database db)
+        {
+
+            List<int> cr = db.GetCoursesID();
+            List<int> st = db.GetStudentsID();
+            bool flag = false;
+            int st_number;
+            int cr_number;
+
+            //cr.ForEach(item => Console.WriteLine(item));
+            //st.ForEach(item => Console.WriteLine(item));
+
+            do
+            {
+
+                db.ShowStudents();
+                st_number = Helper.GetNumberList(st, "the number that corresponds to the student you want to assign:");
+                Console.WriteLine(st_number);
+
+                db.ShowCourses();
+                cr_number = Helper.GetNumberList(cr, "the number that corresponds to the course you want to assign the student you picked:");
+                Console.WriteLine(cr_number);
+
+                List<Students> st_list = db.Students.ToList();
+                Students st_target = st_list[st_number];
+                List<Courses> cr_list = st_target.Courses.ToList();
+
+                foreach (var item in cr_list)
+                {
+                    if (item.CID == cr_number)
+                    {
+                        flag = true;
+                        Console.WriteLine("Already exists!");
+                        break;
+                    }
+                }
+
+            } while (flag);
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(queryStudentsPerCourse, connstring);
+                    DataSet dtset = new DataSet();
+                    adapter.Fill(dtset, "StudentsPerCourse");
+                    SqlCommand cmd = new SqlCommand(@"insert into StudentsPerCourse(SID, CID) values (@SID, @CID)", conn);
+                    cmd.Parameters.AddWithValue("@CID", cr_number);
+                    cmd.Parameters.AddWithValue("@SID", st_number);
+                    adapter.InsertCommand = cmd;
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    adapter.Dispose();
+                    dtset.Dispose();
+                    conn.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.WriteLine("Success!!");
+                Console.WriteLine();
+            }
+
+        }
+
+
 
     }
 }

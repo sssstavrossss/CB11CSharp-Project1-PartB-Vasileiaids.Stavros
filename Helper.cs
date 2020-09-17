@@ -181,5 +181,22 @@ namespace CB11_ProjectA_PartB
             return number;
         }
 
+        public static int GetNumberList(List<int> list, string message)
+        {
+            //list.ForEach(item => Console.WriteLine(item));
+            //Console.WriteLine(list.Min());
+            //Console.WriteLine(list.Max());
+            string str;
+            int number;
+            bool flag;
+            do
+            {
+                Console.WriteLine($"Please type {message}");
+                str = Console.ReadLine();
+                flag = (!int.TryParse(str, out number) && number < list.Min() && number > list.Max());
+            } while (flag);
+            return number;
+        }
+
     }
 }

@@ -224,17 +224,39 @@ namespace CB11_ProjectA_PartB.Entities
             {
                 foreach (var item in Students.ToList())
                     if (item.Assignments.Any())
-                    {
                         foreach (var item2 in item.Assignments.ToList())
-                        {
                             if (item2.subDateTime >= date && item2.subDateTime <= date.AddDays(5))
                                 Console.WriteLine($"Student: {item.firstName} {item.lastName}");
-                        }
-                    }
             }
             else
                 Console.WriteLine("Therea re no Students yet!");
 
         }
+
+        public List<int> GetStudentsID()
+        {
+            List<int> list = Students.ToList().Select(st => st.SID ).ToList();
+            return list;
+        }
+
+        public List<int> GetTrainersID()
+        {
+            List<int> list = Trainers.ToList().Select(st => st.TID).ToList();
+            return list;
+        }
+        public List<int> GetAssignmentsID()
+        {
+            List<int> list = Assignments.ToList().Select(st => st.AID).ToList();
+            return list;
+        }
+        public List<int> GetCoursesID()
+        {
+            List<int> list = Courses.ToList().Select(st => st.CID).ToList();
+            return list;
+        }
+        //public bool ValidateStudentsAssign(int st , int cr)
+        //{
+
+        //}
     }
 }
