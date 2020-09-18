@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CB11_ProjectA_PartB.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,9 +34,12 @@ namespace CB11_ProjectA_PartB
             string rd;
             do
             {
-                Console.WriteLine("Type your number of choice.");
-                rd = Console.ReadLine();
-            } while (!int.TryParse(rd, out x) && x != 1 && x != 2 && x != 3 && x != 4);
+                do
+                {
+                    Console.WriteLine("Type your number of choice.");
+                    rd = Console.ReadLine();
+                } while (!int.TryParse(rd, out x));
+            } while (x != 1 && x != 2 && x != 3 && x != 4);
             Console.WriteLine();
             return x;
         }
@@ -56,9 +61,12 @@ namespace CB11_ProjectA_PartB
             string rd;
             do
             {
-                Console.WriteLine("Type your number of choice.");
-                rd = Console.ReadLine();
-            } while (!int.TryParse(rd, out x) && x < 1 && x > 5);
+                do
+                {
+                    Console.WriteLine("Type your number of choice.");
+                    rd = Console.ReadLine();
+                } while (!int.TryParse(rd, out x));
+            } while (x < 1 && x > 5);
             Console.WriteLine();
             return x;
         }
@@ -87,9 +95,12 @@ namespace CB11_ProjectA_PartB
             string rd;
             do
             {
-                Console.WriteLine("Type your number of choice.");
-                rd = Console.ReadLine();
-            } while (!int.TryParse(rd, out x) && x < 1 && x > 12);
+                do
+                {
+                    Console.WriteLine("Type your number of choice.");
+                    rd = Console.ReadLine();
+                } while (!int.TryParse(rd, out x));
+            } while (x < 1 && x > 12);
             Console.WriteLine();
             return x;
         }
@@ -119,9 +130,12 @@ namespace CB11_ProjectA_PartB
             string rd;
             do
             {
-                Console.WriteLine("Type your number of choice.");
-                rd = Console.ReadLine();
-            } while (!int.TryParse(rd, out x) && x != 1 && x != 2);
+                do
+                {
+                    Console.WriteLine("Type your number of choice.");
+                    rd = Console.ReadLine();
+                } while (!int.TryParse(rd, out x));
+            } while (x != 1 && x != 2);
             Console.WriteLine();
             return x;
         }
@@ -129,13 +143,14 @@ namespace CB11_ProjectA_PartB
         public static string GetString(string message)
         {
             string str;
-            bool flag;
             do
             {
-                Console.WriteLine($"Please type: {message}");
-                str = Console.ReadLine().Trim();
-                flag = (str != "" || str != " " || str.Count() > 50);
-            } while (!flag);
+                do
+                {
+                    Console.WriteLine($"Please type: {message}");
+                    str = Console.ReadLine().Trim();
+                } while (str.Count() > 50);
+            } while (String.IsNullOrEmpty(str));
             return str;
         }
 
@@ -169,32 +184,29 @@ namespace CB11_ProjectA_PartB
         {
             string str;
             int number;
-            bool flag;
-
             do
             {
-                Console.WriteLine($"Please type {message}");
-                str = Console.ReadLine();
-                flag = (!int.TryParse(str, out number) && number < 0);
-            } while (flag);
-
+                do
+                {
+                    Console.WriteLine($"Please type {message}");
+                    str = Console.ReadLine();
+                } while (!int.TryParse(str, out number));
+            } while (number < 0);
             return number;
         }
 
         public static int GetNumberList(List<int> list, string message)
         {
-            //list.ForEach(item => Console.WriteLine(item));
-            //Console.WriteLine(list.Min());
-            //Console.WriteLine(list.Max());
             string str;
             int number;
-            bool flag;
             do
             {
-                Console.WriteLine($"Please type {message}");
-                str = Console.ReadLine();
-                flag = (!int.TryParse(str, out number) && number < list.Min() && number > list.Max());
-            } while (flag);
+                do
+                {
+                    Console.WriteLine($"Please type {message}");
+                    str = Console.ReadLine();
+                } while (!int.TryParse(str, out number));
+            } while (!list.Any(x => x == number));
             return number;
         }
 

@@ -17,7 +17,6 @@ namespace CB11_ProjectA_PartB
             int secondTierChoice; // second tier menu input choice
             int exit; // variable to determine if user wants to exit
             int back = 1; // variable to determine if user wants to move to lower tier menu
-
             Helper.Intro();
             do
             {
@@ -29,6 +28,8 @@ namespace CB11_ProjectA_PartB
                     ThirdTier(firstTierChoice, secondTierChoice, out back, db);
                 } while (back == 1);
             } while (exit == 2);
+            Console.WriteLine("Bye bye!");
+            Console.WriteLine();
         }
 
         private static void SecondTier(int firstTierChoice, out int secondTierChoice, out int exit)
@@ -123,25 +124,17 @@ namespace CB11_ProjectA_PartB
         private static void SecondTierAction_Assign(int secondTierChoice, out int back, Database db)
         {
             Manager manager = new Manager(); // to initialize manager class which includes database inserts
-            back = 0;
-            if (secondTierChoice == 1)
-            {
+            back = 1;
+            if (secondTierChoice == 1) // 1. Assign Student to Course
                 manager.AddStudentsToCourses(db);
-            }
-            else if (secondTierChoice == 2)
-            {
-
-            }
-            else if (secondTierChoice == 3)
-            {
-
-            }
-            else if (secondTierChoice == 4)
-            {
-
-            }
+            else if (secondTierChoice == 2) // 2. Assign Trainer to Course
+                manager.AddTrainersToCourses(db);
+            else if (secondTierChoice == 3) // 3. Assign Assignment to Course
+                manager.AddAssignmentsToCourses(db);
+            else if (secondTierChoice == 4) // 4. Assign Assignment to Student
+                manager.AddAssignmentsToStudents(db);
             else
-                back = 1;
+                back = 0;
         }
 
     }
