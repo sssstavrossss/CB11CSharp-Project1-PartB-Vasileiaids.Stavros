@@ -252,7 +252,7 @@ namespace CB11_ProjectA_PartB
                 db.ShowCourses();
                 cr_number = Helper.GetNumberList(cr, "the number that corresponds to the course you want to assign the trainer you picked:");
                 List<Trainers> tr_list = db.Trainers.ToList();
-                Trainers tr_target = tr_list[tr_number];
+                Trainers tr_target = tr_list.Find(x => x.TID == tr_number);
                 List<Courses> cr_list = tr_target.Courses.ToList();
 
                 foreach (var item in cr_list)
@@ -313,7 +313,7 @@ namespace CB11_ProjectA_PartB
                 db.ShowCourses();
                 cr_number = Helper.GetNumberList(cr, "the number that corresponds to the course you want to assign the student you picked:");
                 List<Assignments> ag_list = db.Assignments.ToList();
-                Assignments ag_target = ag_list[ag_number];
+                Assignments ag_target = ag_list.Find(x => x.AID == ag_number);
                 List<Courses> cr_list = ag_target.Courses.ToList();
 
                 foreach (var item in cr_list)
@@ -374,7 +374,7 @@ namespace CB11_ProjectA_PartB
                 db.ShowCourses();
                 st_number = Helper.GetNumberList(st, "the number that corresponds to the student you want to assign the assignment you picked:");
                 List<Assignments> ag_list = db.Assignments.ToList();
-                Assignments ag_target = ag_list[ag_number];
+                Assignments ag_target = ag_list.Find(x => x.AID == ag_number);
                 List<Students> st_list = ag_target.Students.ToList();
 
                 foreach (var item in st_list)
