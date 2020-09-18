@@ -2,12 +2,9 @@
 ### Project part b for the coding bootcamp 11 c sharp class
 
 #### Following PART A you need to implement the below functionality:
-#### 1. Design the ERD of your system and verify it through an online tool such as
-#### https://sqldbm.com/ (it requires a free account) [15 marks]
-#### 2. Identify any other tables you need based on your implementation and
-#### construct them [15 marks]
-#### 3. Make the schema of a database that can keep data for the main entities of
-#### the assignment and name the tables as: Students, Trainers, Assignments,
+#### 1. Design the ERD of your system and verify it through an online tool such as https://sqldbm.com/ (it requires a free account) [15 marks]
+#### 2. Identify any other tables you need based on your implementation and construct them [15 marks]
+#### 3. Make the schema of a database that can keep data for the main entities of the assignment and name the tables as: Students, Trainers, Assignments,
 #### Courses [15 marks]
 #### 4. Populate the tables of the database with enough data [10 marks]
 #### 5. You need to produce sql queries that output the following [19 marks in
@@ -31,10 +28,8 @@
     • A list of students that belong to more than one courses [3 marks]
 
 #### 6. You also need to produce a small project that [26 marks]
-#### a. makes a connection to the database and executes the above sql
-#### queries [9 marks]
-#### b. makes a connection to the database and inserts input data from the
-#### keyboard to the following tables,
+#### a. makes a connection to the database and executes the above sql queries [9 marks]
+#### b. makes a connection to the database and inserts input data from the keyboard to the following tables,
 
      i. students [2 marks]
 
