@@ -4,11 +4,9 @@
 #### Following PART A you need to implement the below functionality:
 #### 1. Design the ERD of your system and verify it through an online tool such as https://sqldbm.com/ (it requires a free account) [15 marks]
 #### 2. Identify any other tables you need based on your implementation and construct them [15 marks]
-#### 3. Make the schema of a database that can keep data for the main entities of the assignment and name the tables as: Students, Trainers, Assignments,
-#### Courses [15 marks]
+#### 3. Make the schema of a database that can keep data for the main entities of the assignment and name the tables as: Students, Trainers, Assignments, Courses [15 marks]
 #### 4. Populate the tables of the database with enough data [10 marks]
-#### 5. You need to produce sql queries that output the following [19 marks in
-#### total]:
+#### 5. You need to produce sql queries that output the following [19 marks in total]:
     • A list of all the students [2 marks]
 
     • A list of all the trainers [2 marks]
