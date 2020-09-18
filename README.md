@@ -44,4 +44,6 @@
     vii. assignments per student per course [3 marks]
 
 
-## CURΡENT PROBLEMS AND THOUGHS: 
+## CURRENT PROBLEMS AND THOUGHS: 
+
+(to be updated soon)
